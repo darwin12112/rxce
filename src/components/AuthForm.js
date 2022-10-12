@@ -370,13 +370,7 @@ sendOTP=()=>{
           <Form onSubmit={this.handleSubmit}>
             {showLogo && (
               <div className="text-center pb-4">
-                <img
-                  src={logo200Image}
-                  className="rounded"
-                  style={{ width: 300, height: 50, cursor: 'pointer' }}
-                  alt="logo"
-                  onClick={onLogoClick}
-                />
+                
               </div>
             )}
             <FormGroup>
@@ -479,13 +473,7 @@ sendOTP=()=>{
           <Form>
             {showLogo && (
               <div className="text-center pb-4">
-                <img
-                  src={logo200Image}
-                  className="rounded"
-                  style={{ width: 300, height: 50, cursor: 'pointer' }}
-                  alt="logo"
-                  onClick={onLogoClick}
-                />
+               
               </div>
             )}
             
