@@ -1,14 +1,14 @@
 // colors
 
 .bg-gradient-theme {
-  background: linear-gradient(to bottom, theme-color("teal"), theme-color("secondary"));
+  background: linear-gradient(to bottom, theme-color("teal"), theme-color("gray"));
 }
 .bg-gradient-theme-top {
-  background: linear-gradient(to top, theme-color("teal"), theme-color("secondary"));
+  background: linear-gradient(to top, theme-color("teal"), theme-color("gray"));
 }
 .bg-gradient-theme-left {
-  background: linear-gradient(to left, theme-color("teal"), theme-color("secondary"));
+  background: linear-gradient(to left, theme-color("teal"), theme-color("gray"));
 }
 .bg-gradient-theme-right {
-  background: linear-gradient(to right, theme-color("teal"), theme-color("secondary"));
+  background: linear-gradient(to right, theme-color("teal"), theme-color("gray"));
 }
