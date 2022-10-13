@@ -716,7 +716,7 @@ class EnjoyPage extends React.Component {
             (this.props.auth.user.admin === true && this.props.auth.user.superAdmin === true) ? (
               <div style={{ 'width': '100%' }}>
                 <Link color="danger" className="btn btn-danger" to="/enjoy-admin" >Admin</Link>
-                <Link color="link" className="btn btn-warning" to="/my/recharge"  >Recharge</Link>
+                <Link color="link" className="btn btn-danger" to="/my/recharge"  >Recharge</Link>
 
                 <Button color="success" onClick={this.toggleRead()}>Read Rule</Button>
                 <Button color="link" onClick={this.onReload} style={{ "float": "right" }}><FaSyncAlt /></Button>
@@ -724,7 +724,7 @@ class EnjoyPage extends React.Component {
 
             ) : (
                 <div style={{ 'width': '100%' }}>
-                  <Link className="btn btn-warning" color="link" to="/my/recharge"  >Recharge</Link>
+                  <Link className="btn btn-danger" color="link" to="/my/recharge"  >Recharge</Link>
                   <Button color="success" onClick={this.toggleRead()}>Read Rule</Button>
                   <Button color="link" onClick={this.onReload} style={{ "float": "right" }}><FaSyncAlt /></Button>
                 </div>
