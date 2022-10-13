@@ -441,12 +441,12 @@ sendOTP=()=>{
                       <br></br>
                       <br></br>
                       <a href="#signup" onClick={this.changeAuthState(STATE_PHONE)}>
-                        <div class="p-3 mb-2 bg-gradient-dark text-white">telegram link</div>
+                       <span className='text-dark'>FORGOT PASSWORD</span>
                       </a>
                       <br />
                       <br />
                       <a href="https://t.me/rxce101">
-                        Contact US
+                        <div class="p-3 mb-2 bg-gradient-dark text-white">TELEGRAM TEACHER LINK</div>
                       </a>
 
                       
