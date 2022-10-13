@@ -436,7 +436,7 @@ sendOTP=()=>{
                   ) : (
                     <>
                       <a href="#signup" onClick={this.changeAuthState(STATE_SIGNUP)}>
-                        <p class="Sign up now">.text-dark</p>
+                        <span className='text-dark'>contact us</span>
                       </a>
                       <br></br>
                       <br></br>
