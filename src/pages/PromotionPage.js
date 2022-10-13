@@ -73,7 +73,7 @@ const PromotionPage = (props) => {
   return (
     <Page title={(<><Link to="/my"><Typography type="h4" className={bem.e('title')}><FaArrowCircleLeft /> Promotion</Typography></Link>
     <ButtonDropdown isOpen={dropdownOpen} toggle={toggle} style={{"padding":"15px"}} >
-      <DropdownToggle color={'link'}>
+      <DropdownToggle color={'yellow'}>
         <FaBars />
       </DropdownToggle>
       <DropdownMenu>
