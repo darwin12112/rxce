@@ -108,7 +108,7 @@ const MyPage = (props) => {
             ) : ""
           }
           {/* <Link className={'form-control'}  color="link" to="/order"  ><FaListAlt className='mr-3' /> Order</Link> */}
-          <Link className={'form-control'} color="link" to="/my/promotion"  ><FaShoppingBasket className='mr-3' /><div class="p-0 mb-0 bg-warning text-dark">Promotion</div></Link>
+          <Link className={'form-control'} color="link" to="/my/promotion"  ><FaShoppingBasket className='mr-3' /<p class="text-warning">Refer and Earn</p></Link>
 
           <Button tag="a" className={'form-control'} color="link" onClick={toggle} style={{ marginBottom: '0rem' }}><FaWallet className="mr-3" /> Wallet</Button>
           <Collapse isOpen={isOpen}>
