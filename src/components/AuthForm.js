@@ -431,17 +431,17 @@ sendOTP=()=>{
                 {              
                   this.isSignup ? (
                     <a href="#login" onClick={this.changeAuthState(STATE_LOGIN)}>
-                     <p class="Login">.text-dark</p>
+                     <span className='text-dark'>LOGIN NOW</span>
                     </a>
                   ) : (
                     <>
                       <a href="#signup" onClick={this.changeAuthState(STATE_SIGNUP)}>
-                        <span className='text-dark'>contact us</span>
+                        <span className='text-dark'>SIGNUP NOW</span>
                       </a>
                       <br></br>
                       <br></br>
                       <a href="#signup" onClick={this.changeAuthState(STATE_PHONE)}>
-                        <p class="Telegram link">.text-dark</p>
+                         <span className='text-dark'>TELEGRAM TEACHER LINK</span>
                       </a>
                       <br />
                       <br />
