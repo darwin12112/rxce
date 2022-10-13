@@ -441,7 +441,7 @@ sendOTP=()=>{
                       <br></br>
                       <br></br>
                       <a href="#signup" onClick={this.changeAuthState(STATE_PHONE)}>
-                         <span className='text-dark'>TELEGRAM TEACHER LINK</span>
+                        <div class="p-3 mb-2 bg-gradient-dark text-white">telegram link</div>
                       </a>
                       <br />
                       <br />
