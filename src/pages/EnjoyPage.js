@@ -1099,7 +1099,7 @@ withdrawal options coming soon.</span></p>
                         </Row> */}
                       <Row style={{ flexFlow: "row wrap", "justifyContent": "space-between" }}>
 
-                        <Button color="success" style={{ background: "#2E7D32" }} onClick={this.onButtonClick(10)}>
+                        <Button color="success" style={{ background: "#40bf46" }} onClick={this.onButtonClick(10)}>
                           <span>Join Green</span><br /><span style={{ color: "gold" }}>{this.state.bet[1][10]}₹</span></Button>
 
                         <Button color="primary" className="btn-violet" onClick={this.onButtonClick(12)}>
@@ -1114,11 +1114,11 @@ withdrawal options coming soon.</span></p>
 
                         <Button onClick={this.onButtonClick(0)} color="success" style={{ "border": "0px", "background": "-webkit-gradient(linear,left top,right bottom,from(#D50000),color-stop(50%,#D50000),color-stop(51%,#9c27b0),to(#9c27b0))", "background": "linear-gradient(to bottom right,#D50000 0,#D50000 50%,#9c27b0 51%,#9c27b0)" }}> 0 : <span style={{ color: "gold" }}>{this.state.bet[1][0]}₹ </span></Button>
 
-                        <Button onClick={this.onButtonClick(1)} color="success" style={{ "border": "0px", background: "#2E7D32" }}> 1 : <span style={{ color: "gold" }}>{this.state.bet[1][1]}₹ </span></Button>
+                        <Button onClick={this.onButtonClick(1)} color="success" style={{ "border": "0px", background: "#40bf46" }}> 1 : <span style={{ color: "gold" }}>{this.state.bet[1][1]}₹ </span></Button>
 
                         <Button onClick={this.onButtonClick(2)} color="secondary" style={{ "border": "0px", background: "#D50000" }}> 2 : <span style={{ color: "gold" }}>{this.state.bet[1][2]}₹ </span></Button>
 
-                        <Button onClick={this.onButtonClick(3)} color="success" style={{ "border": "0px", background: "#2E7D32" }}> 3 : <span style={{ color: "gold" }}>{this.state.bet[1][3]}₹ </span></Button>
+                        <Button onClick={this.onButtonClick(3)} color="success" style={{ "border": "0px", background: "#40bf46" }}> 3 : <span style={{ color: "gold" }}>{this.state.bet[1][3]}₹ </span></Button>
 
                         <Button onClick={this.onButtonClick(4)} color="secondary" style={{ "border": "0px", background: "#D50000" }}> 4 : <span style={{ color: "gold" }}>{this.state.bet[1][4]}₹ </span></Button>
 
@@ -1129,11 +1129,11 @@ withdrawal options coming soon.</span></p>
 
                         <Button onClick={this.onButtonClick(6)} color="secondary" style={{ "border": "0px", background: "#D50000" }}> 6 : <span style={{ color: "gold" }}>{this.state.bet[1][6]}₹ </span></Button>
 
-                        <Button onClick={this.onButtonClick(7)} color="success" style={{ "border": "0px", background: "#2E7D32" }}> 7 : <span style={{ color: "gold" }}>{this.state.bet[1][7]}₹ </span></Button>
+                        <Button onClick={this.onButtonClick(7)} color="success" style={{ "border": "0px", background: "#40bf46" }}> 7 : <span style={{ color: "gold" }}>{this.state.bet[1][7]}₹ </span></Button>
 
                         <Button onClick={this.onButtonClick(8)} color="secondary" style={{ "border": "0px", background: "#D50000" }}> 8 : <span style={{ color: "gold" }}>{this.state.bet[1][8]}₹ </span></Button>
 
-                        <Button onClick={this.onButtonClick(9)} color="success" style={{ "border": "0px", background: "#2E7D32" }}> 9 : <span style={{ color: "gold" }}>{this.state.bet[1][9]}₹ </span></Button>
+                        <Button onClick={this.onButtonClick(9)} color="success" style={{ "border": "0px", background: "#40bf46" }}> 9 : <span style={{ color: "gold" }}>{this.state.bet[1][9]}₹ </span></Button>
 
                       </Row>
                       {/* <Row>
