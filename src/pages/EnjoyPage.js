@@ -973,7 +973,7 @@ withdrawal options coming soon.</span></p>
 
           <Row style={{ flexFlow: "row wrap", "justifyContent": "space-between" }} className="category-bar">
 
-            <Button className={this.state.level === 0 ? "btn-active" : ''} color="#FF0000" onClick={this.onCategoryClick(0)}>parity</Button>
+            <Button className={this.state.level === 0 ? "btn-active" : ''} color="rgb(255,0,0)" onClick={this.onCategoryClick(0)}>parity</Button>
             <Button className={this.state.level === 1 ? "btn-active" : ''} color="red" onClick={this.onCategoryClick(1)}>Sapre</Button>
             <Button className={this.state.level === 2 ? "btn-active" : ''} color="#FF0000" onClick={this.onCategoryClick(2)}>Bcone</Button>
             <Button className={this.state.level === 3 ? "btn-active" : ''} color="yellow" onClick={this.onCategoryClick(3)}>Emerd</Button>
