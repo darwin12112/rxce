@@ -12,7 +12,7 @@ const bem = bn.create('page');
 const AppPage = () => {
   
   return (
-    <Page title={(<Link to="/my"><Typography type="h4" className={bem.e('title')}><FaArrowCircleLeft /> App</Typography></Link>)} className="MyPage"  >
+    <Page title={(<Link to="/wingotrade.in"><Typography type="h4" className={bem.e('title')}><FaArrowCircleLeft /> App</Typography></Link>)} className="MyPage"  >
 
       <Row>       
         
