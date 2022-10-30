@@ -74,7 +74,7 @@ const MyPage = (props) => {
       className="MyPage"
     >
       <Row>
-        <Col xl={12} lg={12} md={12} style={{ backgroundColor: '#80293C', color: 'white' }}>
+        <Col xl={12} lg={12} md={12} style={{ backgroundColor: '#2116d1d6', color: 'white' }}>
           <div className="mt-2" >
             <div className="mr-3" style={{ float: "left", overflow: "hidden", width: "50px", height: "50px", borderRadius: "50px", backgroundColor: "#424242" }}>
               <div style={{ width: "50px", height: "50px", backgroundSize: 'cover', backgroundImage: "url('/img/avatar.svg')", backgroundPosition: "center center" }}></div>
