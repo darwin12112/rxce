@@ -1125,7 +1125,7 @@ withdrawal options coming soon.</span></p>
                       </Row>
                       <Row style={{ flexFlow: "row wrap", "justifyContent": "space-between" }}>
 
-                        <Button onClick={this.onButtonClick(5)} color="success" style={{ "border": "0px", "background": "-webkit-gradient(linear,left top,right bottom,from(#2E7D32),color-stop(50%,#2E7D32),color-stop(51%,#9c27b0),to(#9c27b0))", "background": "linear-gradient(to bottom right,#2E7D32 0,#2E7D32 50%,#9c27b0 51%,#9c27b0)" }}> 5 : <span style={{ color: "gold" }}>{this.state.bet[1][5]}₹ </span></Button>
+                        <Button onClick={this.onButtonClick(5)} color="success" style={{ "border": "0px", "background": "-webkit-gradient(linear,left top,right bottom,from(#40bf46),color-stop(50%,#40bf46),color-stop(51%,#9c27b0),to(#9c27b0))", "background": "linear-gradient(to bottom right,#40bf46 0,##40bf46 50%,#9c27b0 51%,#9c27b0)" }}> 5 : <span style={{ color: "gold" }}>{this.state.bet[1][5]}₹ </span></Button>
 
                         <Button onClick={this.onButtonClick(6)} color="secondary" style={{ "border": "0px", background: "#D50000" }}> 6 : <span style={{ color: "gold" }}>{this.state.bet[1][6]}₹ </span></Button>
 
