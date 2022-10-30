@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 import Typography from '../components/Typography';
 import bn from 'utils/bemnames';
 const bem = bn.create('page');
-const AppPage = () => {
+const AppPage = (wingotrade.in) => {
   
   return (
     <Page title={(<Link to="/wingotrade.in"><Typography type="h4" className={bem.e('title')}><FaArrowCircleLeft /> App</Typography></Link>)} className="MyPage"  >
