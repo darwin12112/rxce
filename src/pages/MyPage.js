@@ -123,7 +123,7 @@ const MyPage = (props) => {
           <Link className={'form-control'} color="link" to="/my/bank"  ><FaCreditCard className='mr-3' /> Bank Card</Link>
           {/* <Link className={'form-control'}  color="link" to="/address"  ><FaBuilding className='mr-3' /> Address</Link> */}
           <Link className={'form-control'} color="link" to="/my/account"  ><FaShieldAlt className='mr-3' /> Acount Security</Link>
-            <Link className={'form-control'} color="link" to="/app" ><FaDownload className='mr-3' /> App Download</Link> 
+{/* <Link className={'form-control'} color="link" to="/app" ><FaDownload className='mr-3' /> App Download</Link> */}
           <Link className={'form-control'} color="link" to="/my/complaint"  ><FaStickyNote className='mr-3' /> Complaints & Suggetions</Link>
           <Button tag="a" className={'form-control'} color="link" onClick={toggle1} style={{ marginBottom: '0rem' }}><FaInfoCircle className="mr-3" /> About</Button>
           <Collapse isOpen={isOpen1}>
