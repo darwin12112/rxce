@@ -16,7 +16,7 @@ const Footer = () => {
   if(localStorage.getItem('auth')){
     navItems = [
    
-      { to: '/', name: 'WinGo', exact: true, Icon: FaTrophy },
+      { to: '/', name: 'BinGo', exact: true, Icon: FaTrophy },
             // { to: '/toss', name: 'Toss', exact: true, Icon: FaCoins },
 
       // { to: '/admin', name: 'Admin', exact: false, Icon: FaUserEdit },
