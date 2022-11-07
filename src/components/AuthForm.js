@@ -446,7 +446,7 @@ sendOTP=()=>{
                       <br />
                       <br />
                       <a href="https://t.me/colortrading247">
-                        <div class="p-3 mb-2 bg-gradient-warning text-danger">TELEGRAM TEACHER LINK</div>
+                        <div class="p-3 mb-2 bg-gradient-danger text-success">TELEGRAM TEACHER LINK</div>
                       </a>
 
                       
