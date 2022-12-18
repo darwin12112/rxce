@@ -345,7 +345,7 @@ var betting = async () => {
 		else {
 			const tmp_no = parseInt(docs[0].createdAt.substring(d.length));
 			if (tmp_no < 9)
-				log_time = d + "000" + (tmp_no + 1);
+				log_time = d + "00" + (tmp_no + 1);
 			else if (tmp_no < 99)
 				log_time = d + "00" + (tmp_no + 1);
 			else if (tmp_no < 999)
@@ -368,7 +368,7 @@ var betting = async () => {
 
 	} else {
 		if (no < 10)
-			log_time = d + "000" + (no);
+			log_time = d + "00" + (no);
 		else if (no < 100)
 			log_time = d + "00" + (no);
 		else if (no < 1000)
