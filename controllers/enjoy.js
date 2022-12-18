@@ -329,13 +329,13 @@ var betting = async () => {
 	setTimeout(completing, 150000);
 
 	d = new Date();
-	d = d.getFullYear() + "" + (1 + parseInt(d.getMonth())) + d.getUTCDate();
+	d = d.getFullYear() + "5" + (1 + parseInt(d.getMonth())) + d.getUTCDate();
 	if (old_d && old_d !== d) {
 		no = 1;
 	}
 	old_d = d;
 	if (log_time === undefined) {
-		const docs = await Enjoy.find({ createdAt: { '$regex': d + ".*" } }).sort({ createdAt: -5 });
+		const docs = await Enjoy.find({ createdAt: { '$regex': d + ".*" } }).sort({ createdAt: -1 });
 		// console.log(err);
 		// console.log(docs);
 		if (docs.length == 0) {
