@@ -991,7 +991,7 @@ withdrawal options coming soon.</span></p>
                   </div>
                   <div className="card-count">
                     <span>Count Down</span>
-                    <span style={{ fontWeight: "bolder", 'color': count_down_color }}>{parseInt(this.state.time / 100 / 60) + " : " + parseInt((this.state.time / 100) % 60)}
+                    <span style={{ fontWeight: "bolder", 'color': count_down_color }}>{parseInt(this.state.time / 1000/ 60) + " : " + parseInt((this.state.time / 1000) % 60)}
                     </span>
                   </div>
                 </CardHeader>
