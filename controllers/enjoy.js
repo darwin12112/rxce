@@ -349,7 +349,7 @@ var betting = async () => {
 			else if (tmp_no < 99)
 				log_time = d + "0" + (tmp_no + 1);
 			else if (tmp_no < 999)
-				log_time = d + "0" + (tmp_no + 1);
+				log_time = d + "" + (tmp_no + 1);
 			else if (tmp_no < 9999)
 				log_time = d + "" + (tmp_no + 1);
 			no = tmp_no + 1;
@@ -372,7 +372,7 @@ var betting = async () => {
 		else if (no < 100)
 			log_time = d + "0" + (no);
 		else if (no < 1000)
-			log_time = d + "0" + (no);
+			log_time = d + "" + (no);
 		else if (no < 10000)
 			log_time = d + "" + (no);
 
