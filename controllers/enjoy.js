@@ -3,7 +3,7 @@ const Enjoy = require("../models/Enjoy");
 
 const MyEnjoy = require("../models/MyEnjoy");
 var status = 0;
-var d = new Date();
+const d = new Date();
 var old_d;
 var start_time = d.getTime();
 //betters info
