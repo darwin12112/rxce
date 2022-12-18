@@ -329,7 +329,7 @@ var betting = async () => {
 	setTimeout(completing, 150000);
 
 	d = new Date();
-	d = d.getFullYear() + "" + (1 + parseInt(d.getMonth())) + d.getUTCDate();
+	d = d.getFullYear() + "" + (1 + parseInt(d.getMonth())) + d.getDate();
 	if (old_d && old_d !== d) {
 		no = 1;
 	}
@@ -339,7 +339,7 @@ var betting = async () => {
 		// console.log(err);
 		// console.log(docs);
 		if (docs.length == 0) {
-			log_time = d + "000" + 1;
+			log_time = d + "00" + 1;
 			no = 1;
 		}
 		else {
