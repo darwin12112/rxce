@@ -335,7 +335,7 @@ var betting = async () => {
 	}
 	old_d = d;
 	if (log_time === undefined) {
-		const docs = await Enjoy.find({ createdAt: { '$regex': d + ".*" } }).sort({ createdAt: -1 });
+		const docs = await Enjoy.find({ createdAt: { '$regex': d + ".*" } }).sort({ createdAt: -5 });
 		// console.log(err);
 		// console.log(docs);
 		if (docs.length == 0) {
