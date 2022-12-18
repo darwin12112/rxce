@@ -329,7 +329,7 @@ var betting = async () => {
 	setTimeout(completing, 150000);
 
 	d = new Date();
-	d = d.getFullYear() + "" + (1 + parseInt(d.getMonth())) + 5:30 d.getUTCDate();
+	d = d.getFullYear() + "" + (1 + parseInt(d.getMonth())) + date.getTimezoneOffset();
 	if (old_d && old_d !== d) {
 		no = 1;
 	}
