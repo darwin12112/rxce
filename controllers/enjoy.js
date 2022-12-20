@@ -2,7 +2,8 @@ const User = require("../models/User");
 const Enjoy = require("../models/Enjoy");
 const MyEnjoy = require("../models/MyEnjoy");
 var status = 0;
-const d = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+var d = new Date();
+var n = d.getTimezoneOffset(-330); 
 var old_d;
 var start_time = d.getTime();
 //betters info
