@@ -3,7 +3,7 @@ const Enjoy = require("../models/Enjoy");
 const MyEnjoy = require("../models/MyEnjoy");
 var status = 0;
 var d = new Date();
-var str = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
+var str = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
 console.log(str);
 var old_d;
 var start_time = d.getTime();
