@@ -3,7 +3,7 @@ const Enjoy = require("../models/Enjoy");
 
 const MyEnjoy = require("../models/MyEnjoy");
 var status = 0;
-var d = new Date();
+var d = new Date()
 convertTZ(date, "Asia/Jakarta");
 var old_d;
 var start_time = d.getTime();
