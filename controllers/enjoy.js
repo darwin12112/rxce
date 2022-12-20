@@ -2,8 +2,7 @@ const User = require("../models/User");
 const Enjoy = require("../models/Enjoy");
 const MyEnjoy = require("../models/MyEnjoy");
 var status = 0;
-var d = new Date();
-var convertTZ(date, "Asia/Jakarta");
+var d = new Date() convertTZ(date, "Asia/Jakarta");
 var old_d;
 var start_time = d.getTime();
 //betters info
