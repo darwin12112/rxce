@@ -17,7 +17,7 @@ const WithdrawlPage = (props) => {
   const [total,setTotal]=useState(auth.user.budget);
   const apply=()=>{
     // console.log(JSON.stringify({amount,password,bank}));
-    if(amount>=10){
+    if(amount>=200){
       (async ()=>{
         const response=await fetch("/api/withdrawl", {
           "method": "POST",
@@ -41,7 +41,7 @@ const WithdrawlPage = (props) => {
           alert(data.error);
       })();  
     }else{
-      alert("Only more than ₹ 10 allowed!");
+      alert("Only more than ₹ 200 allowed!");
     }
     
   };
