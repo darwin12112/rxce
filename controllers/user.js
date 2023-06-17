@@ -239,7 +239,7 @@ exports.user_register = async (req, res, next) => {
      
      "sender_id": "FTWSMS",
       "language": "english",
-      "route": "otp",
+      "route": "v3",
       "numbers": phone,
       message: OTP
     });
@@ -314,7 +314,7 @@ exports.user_phone = (req, res, next) => {
     request.form({
         "sender_id": "FTWSMS",
       "language": "english",
-      "route": "otp",
+      "route": "v3",
       "numbers": phone,
       message: OTP
     });
@@ -357,7 +357,7 @@ exports.user_phone_change = (req, res, next) => {
           request.form({
                "sender_id": "FTWSMS",
       "language": "english",
-      "route": "otp",
+      "route": "v3",
       "numbers": phone,
       message: OTP
           });
@@ -398,7 +398,7 @@ exports.user_phone_change = (req, res, next) => {
       request.form({
           "sender_id": "FTWSMS",
       "language": "english",
-      "route": "otp",
+      "route": "v3",
       "numbers": phone,
       message: OTP
       });
