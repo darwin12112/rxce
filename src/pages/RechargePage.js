@@ -86,16 +86,6 @@ const RechargePage = (props) => {
         <Col md={12} style={{textAlign:'center'}} className={'mt-3'}>
         <h3>Balance: ₹ {budget}</h3>
         </Col> 
-        
-        /*{ /*<Col xl={12} lg={12} md={12} style={{textAlign:'center'}}>
-          <img src="/img/bank/bank.jpg" style={{width:'300px'}} />
-        </Col>*/ 
-        { <Col xl={12} lg={12} md={12} style={{padding:"0 30px"}}>
-          {accountItems && accountItems.map((ele,key)=>(
-            <h6 key={key}>{ele+' '}:{' '+account[ele]}</h6> 
-          ))}
-          <h6></h6>
-        </Col> }
         <Col xl={12} lg={12} md={12}>
           <InputGroup>
             <InputGroupAddon addonType="prepend"><span className="input-group-text">₹</span></InputGroupAddon>
