@@ -87,9 +87,9 @@ const RechargePage = (props) => {
         <h3>Balance: ₹ {budget}</h3>
         </Col> 
         
-        { <Col xl={12} lg={12} md={12} style={{textAlign:'center'}}>
+        /*{ /*<Col xl={12} lg={12} md={12} style={{textAlign:'center'}}>
           <img src="/img/bank/bank.jpg" style={{width:'300px'}} />
-        </Col> }
+        </Col>*/ 
         { <Col xl={12} lg={12} md={12} style={{padding:"0 30px"}}>
           {accountItems && accountItems.map((ele,key)=>(
             <h6 key={key}>{ele+' '}:{' '+account[ele]}</h6> 
@@ -128,6 +128,11 @@ const RechargePage = (props) => {
           ) : (
             <PageSpinner />
           )}
+             { <Col xl={12} lg={12} md={12} style={{padding:"0 30px"}}>
+          {accountItems && accountItems.map((ele,key)=>(
+            <h6 key={key}>{ele+' '}:{' '+account[ele]}</h6> 
+          ))}
+          <h6></h6>
             
         </Col>    
         <Col md={12} style={{textAlign:'center'}} className={'mt-3'} >
