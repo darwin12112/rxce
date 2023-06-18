@@ -128,15 +128,13 @@ const RechargePage = (props) => {
           ) : (
             <PageSpinner />
           )}
-          <Col xl={12} lg={12} md={12}>
-          <Button color="primary" className={'ml-3 mr-3 mt-2'} style={{width:'80px', padding:"4px 4px"}} onClick={()=>setMoney(100)} >₹ 100</Button>
-          <Button color="primary" className={'ml-3 mr-3 mt-2'} style={{width:'80px', padding:"4px 4px"}} onClick={()=>setMoney(1000)} >₹ 1000</Button>
-          <Button color="primary" className={'ml-3 mr-3 mt-2'} style={{width:'80px', padding:"4px 4px"}} onClick={()=>setMoney(2000)} >₹ 2000</Button>
-          <Button color="primary" className={'ml-3 mr-3 mt-2'} style={{width:'80px', padding:"4px 4px"}} onClick={()=>setMoney(5000)} >₹ 5000</Button>
-          <Button color="primary" className={'ml-3 mr-3 mt-2'} style={{width:'80px', padding:"4px 4px"}} onClick={()=>setMoney(10000)} >₹ 10000</Button>
-          <Button color="primary" className={'ml-3 mr-3 mt-2'} style={{width:'80px', padding:"4px 4px"}} onClick={()=>setMoney(15000)} >₹ 15000</Button>
-        </Col>
           
+          <div>
+      <input type="text" value={copyText} readOnly />
+      <button>
+        <span>{isCopied ? 'Copied!' : 'Copy'}</span>
+      </button>
+    </div>
         </Col>    
         <Col md={12} style={{textAlign:'center'}} className={'mt-3'} >
             <img src='/img/bank.jfif' style={{width:'100%', maxWidth:'500px'}} />
