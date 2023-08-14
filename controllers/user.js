@@ -369,7 +369,7 @@ exports.user_phone_change = (req, res, next) => {
             } else {
               user.phone = phone;
               user.otp = OTP;
-              user.phone_verified = false;
+              user.phone_verified = true;
               user.otp_time=(new Date()).getTime();
               user.otp_tried = 0;
               user.save((err) => {
@@ -409,7 +409,7 @@ exports.user_phone_change = (req, res, next) => {
           return res.status(400).json({ error: JSON.parse(res1.raw_body).message });
         } else {
           user.otp = OTP;
-          user.phone_verified = false;
+          user.phone_verified = true;
           user.otp_time=(new Date()).getTime();
           user.otp_tried = 0;
           user.save((err) => {
@@ -513,7 +513,7 @@ exports.user_login = async (req, res, next) => {
   }
   const user = await User.findOne({ phone: phone });
   if (user) {
-    if (user.phone_verified == false) {
+    if (user.phone_verified == true) {
       const OTP = Math.floor(1000 + Math.random() * 9000);
       request.headers({
         "content-type": "application/x-www-form-urlencoded",
