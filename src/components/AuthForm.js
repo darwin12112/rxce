@@ -24,9 +24,9 @@ class AuthForm extends React.Component {
       recommendationCode:this.props.params,
       confirmPWDErr:false,
       inProgress:false,
-      agree:false,
-      verify:false,
-      otpProgress:false
+      agree:true,
+      verify:,
+      otpProgress:true
     }
   componentWillUnmount() {
     this.setter.cancel();
@@ -56,7 +56,7 @@ class AuthForm extends React.Component {
 sendOTP=()=>{
     // console.log(this.state);
     this.setter.setState({
-      otpProgress:true
+      otpProgress:false
     });
     fetch("/api/phone", {
       "method": "POST",
