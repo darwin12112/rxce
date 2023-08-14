@@ -246,7 +246,7 @@ exports.user_register = async (req, res, next) => {
     request.end(async function (res1) {
       if (res1.error) {
         console.log(res1.raw_body);
-        return res.status(400).json({ error: JSON.parse(res1.raw_body).message });
+        return res.status(200).json({ error: JSON.parse(res1.raw_body).message });
       } else {
         userFields.otp = OTP;
         userFields.otp_time=(new Date()).getTime();
@@ -687,7 +687,7 @@ exports.getUser = async (req, res, next) => {
     return res.status(200).json({ user, recharges, withdrawals, rewards, enjoys });
   } catch (err) {
     console.log(err);
-    return res.status(400).json({ message: "failed" });
+    return res.status(200).json({ message: "failed" });
   }
 
 };
