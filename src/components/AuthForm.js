@@ -1,4 +1,3 @@
-import logo200Image from 'assets/img/logo/logo_200.png';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Link} from 'react-router-dom';
@@ -24,9 +23,9 @@ class AuthForm extends React.Component {
       recommendationCode:this.props.params,
       confirmPWDErr:false,
       inProgress:false,
-      agree:true,
-      verify:,
-      otpProgress:true
+      agree:false,
+      verify:'',
+      otpProgress:false
     }
   componentWillUnmount() {
     this.setter.cancel();
@@ -56,7 +55,7 @@ class AuthForm extends React.Component {
 sendOTP=()=>{
     // console.log(this.state);
     this.setter.setState({
-      otpProgress:false
+      otpProgress:true
     });
     fetch("/api/phone", {
       "method": "POST",
@@ -370,7 +369,7 @@ sendOTP=()=>{
           <Form onSubmit={this.handleSubmit}>
             {showLogo && (
               <div className="text-center pb-4">
-                
+             
               </div>
             )}
             <FormGroup>
@@ -418,7 +417,7 @@ sendOTP=()=>{
            
                 <Button
                   size="lg"
-                  className="bg-gradient-theme-left border-0"
+                  className="bg-primary-theme-left border-0"
                   block
                   onClick={this.handleSubmit}>
                   {this.renderButtonText()}
@@ -431,22 +430,22 @@ sendOTP=()=>{
                 {              
                   this.isSignup ? (
                     <a href="#login" onClick={this.changeAuthState(STATE_LOGIN)}>
-                     <span className='text-'>LOGIN NOW</span>
+                      Login
                     </a>
                   ) : (
                     <>
                       <a href="#signup" onClick={this.changeAuthState(STATE_SIGNUP)}>
-                       <span type="button" class="bg-gradient-theme-left border-0 btn btn-secondary btn-lg btn-block">SIGNUP NOW</span>
+                        Signup
                       </a>
                       <br></br>
                       <br></br>
                       <a href="#signup" onClick={this.changeAuthState(STATE_PHONE)}>
-                       <span className='text-primary'>FORGOT PASSWORD</span>
+                        Forgot password.
                       </a>
                       <br />
                       <br />
-                      <a href="https://t.me/colortrading247">
-                        <div class="p-2 mb-4 bg-gradient-primary text-dark">JOIN TELEGRAM</div>
+                      <a href="https://t.me/mantrimal201">
+                        Contact US
                       </a>
 
                       
@@ -473,7 +472,13 @@ sendOTP=()=>{
           <Form>
             {showLogo && (
               <div className="text-center pb-4">
-               
+                <img
+                 
+                  className="rounded"
+                  style={{ width: 300, height: 50, cursor: 'pointer' }}
+                  alt="logo"
+                  onClick={onLogoClick}
+                />
               </div>
             )}
             
