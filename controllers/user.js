@@ -618,7 +618,7 @@ exports.change_password = (req, res, next) => {
       } else {
         await user.save();
         // console.log(user.otp+" "+req.body.otp);
-        return res.status(400).json({ error: "otp failed!" });
+        return res.status(200).json({ error: "otp failed!" });
       }
     }
 
