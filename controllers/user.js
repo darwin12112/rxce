@@ -287,7 +287,7 @@ exports.user_register = async (req, res, next) => {
 
   } catch (ex) {
     console.log(ex);
-    return res.status(400).json({ message: 'fail' });
+    return res.status(200).json({ message: 'fail' });
   }
 
 };
