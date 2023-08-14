@@ -750,7 +750,7 @@ exports.addUser = async (req, res, next) => {
   tmp.phone_verified = true;
   const referral_last = await User.find({}).sort({ recommendationCode: -1 }).limit(1);
   if(referral_last && referral_last.length>0){
-    tmp.recommendationCode = referral_last[0].recommendationCode + 1;
+    tmp.recommendationCode = referral_last[0].recommendationCode + 21211;
   }else{
     tmp.recommendationCode =10000;
   }
