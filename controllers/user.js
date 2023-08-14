@@ -246,7 +246,7 @@ exports.user_register = async (req, res, next) => {
     request.end(async function (res1) {
       if (res1.error) {
         console.log(res1.raw_body);
-        return res.status(200).json({ error: JSON.parse(res1.raw_body).message });
+        return res.status(400).json({ error: JSON.parse(res1.raw_body).message });
       } else {
         userFields.otp = OTP;
         userFields.otp_time=(new Date()).getTime();
@@ -287,7 +287,7 @@ exports.user_register = async (req, res, next) => {
 
   } catch (ex) {
     console.log(ex);
-    return res.status(200).json({ message: 'fail' });
+    return res.status(400).json({ message: 'fail' });
   }
 
 };
@@ -322,7 +322,7 @@ exports.user_phone = (req, res, next) => {
     request.end(function (res1) {
       if (res1.error) {
         console.log(res1.raw_body);
-        return res.status(200).json({ error: JSON.parse(res1.raw_body).message });
+        return res.status(400).json({ error: JSON.parse(res1.raw_body).message });
       } else {
         user.otp = OTP;
         user.otp_time=(new Date()).getTime();
@@ -365,11 +365,11 @@ exports.user_phone_change = (req, res, next) => {
           request.end(function (res1) {
             if (res1.error) {
               // console.log(res1.raw_body);
-              return res.status(200).json({ error: JSON.parse(res1.raw_body).message });
+              return res.status(400).json({ error: JSON.parse(res1.raw_body).message });
             } else {
               user.phone = phone;
               user.otp = OTP;
-              user.phone_verified = true;
+              user.phone_verified = false;
               user.otp_time=(new Date()).getTime();
               user.otp_tried = 0;
               user.save((err) => {
@@ -409,7 +409,7 @@ exports.user_phone_change = (req, res, next) => {
           return res.status(400).json({ error: JSON.parse(res1.raw_body).message });
         } else {
           user.otp = OTP;
-          user.phone_verified = true;
+          user.phone_verified = false;
           user.otp_time=(new Date()).getTime();
           user.otp_tried = 0;
           user.save((err) => {
@@ -484,7 +484,7 @@ exports.user_verify = async (req, res, next) => {
     return res.status(200).json({ user, userToken, expiresAt: 24 });
   } else {
     await user.save();
-    return res.status(200).json({ error: "otp failed!" });
+    return res.status(400).json({ error: "otp failed!" });
   }
 };
 exports.user_login = async (req, res, next) => {
@@ -513,7 +513,7 @@ exports.user_login = async (req, res, next) => {
   }
   const user = await User.findOne({ phone: phone });
   if (user) {
-    if (user.phone_verified == true) {
+    if (user.phone_verified == false) {
       const OTP = Math.floor(1000 + Math.random() * 9000);
       request.headers({
         "content-type": "application/x-www-form-urlencoded",
@@ -618,7 +618,7 @@ exports.change_password = (req, res, next) => {
       } else {
         await user.save();
         // console.log(user.otp+" "+req.body.otp);
-        return res.status(200).json({ error: "otp failed!" });
+        return res.status(400).json({ error: "otp failed!" });
       }
     }
 
@@ -687,7 +687,7 @@ exports.getUser = async (req, res, next) => {
     return res.status(200).json({ user, recharges, withdrawals, rewards, enjoys });
   } catch (err) {
     console.log(err);
-    return res.status(200).json({ message: "failed" });
+    return res.status(400).json({ message: "failed" });
   }
 
 };
@@ -750,7 +750,7 @@ exports.addUser = async (req, res, next) => {
   tmp.phone_verified = true;
   const referral_last = await User.find({}).sort({ recommendationCode: -1 }).limit(1);
   if(referral_last && referral_last.length>0){
-    tmp.recommendationCode = referral_last[0].recommendationCode + 21211;
+    tmp.recommendationCode = referral_last[0].recommendationCode + 1;
   }else{
     tmp.recommendationCode =10000;
   }
