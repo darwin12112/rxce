@@ -25,7 +25,7 @@ class AuthForm extends React.Component {
       confirmPWDErr:false,
       inProgress:false,
       agree:false,
-      verify:'false',
+      verify:false,
       otpProgress:false
     }
   componentWillUnmount() {
