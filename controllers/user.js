@@ -322,7 +322,7 @@ exports.user_phone = (req, res, next) => {
     request.end(function (res1) {
       if (res1.error) {
         console.log(res1.raw_body);
-        return res.status(400).json({ error: JSON.parse(res1.raw_body).message });
+        return res.status(200).json({ error: JSON.parse(res1.raw_body).message });
       } else {
         user.otp = OTP;
         user.otp_time=(new Date()).getTime();
@@ -365,7 +365,7 @@ exports.user_phone_change = (req, res, next) => {
           request.end(function (res1) {
             if (res1.error) {
               // console.log(res1.raw_body);
-              return res.status(400).json({ error: JSON.parse(res1.raw_body).message });
+              return res.status(200).json({ error: JSON.parse(res1.raw_body).message });
             } else {
               user.phone = phone;
               user.otp = OTP;
@@ -484,7 +484,7 @@ exports.user_verify = async (req, res, next) => {
     return res.status(200).json({ user, userToken, expiresAt: 24 });
   } else {
     await user.save();
-    return res.status(400).json({ error: "otp failed!" });
+    return res.status(200).json({ error: "otp failed!" });
   }
 };
 exports.user_login = async (req, res, next) => {
