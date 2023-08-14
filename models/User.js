@@ -42,7 +42,7 @@ const UserSchema = new Schema({
   },
   phone_verified: {
     type: Boolean,
-    default: true
+    default:true
   },
   otp: {
     type: String
