@@ -1,3 +1,4 @@
+import logo200Image from 'assets/img/logo/logo_200.png';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Link} from 'react-router-dom';
@@ -369,7 +370,7 @@ sendOTP=()=>{
           <Form onSubmit={this.handleSubmit}>
             {showLogo && (
               <div className="text-center pb-4">
-             
+                
               </div>
             )}
             <FormGroup>
@@ -417,7 +418,7 @@ sendOTP=()=>{
            
                 <Button
                   size="lg"
-                  className="bg-primary-theme-left border-0"
+                  className="bg-gradient-theme-left border-0"
                   block
                   onClick={this.handleSubmit}>
                   {this.renderButtonText()}
@@ -430,22 +431,22 @@ sendOTP=()=>{
                 {              
                   this.isSignup ? (
                     <a href="#login" onClick={this.changeAuthState(STATE_LOGIN)}>
-                      Login
+                     <span className='text-'>LOGIN NOW</span>
                     </a>
                   ) : (
                     <>
                       <a href="#signup" onClick={this.changeAuthState(STATE_SIGNUP)}>
-                        Signup
+                       <span type="button" class="bg-gradient-theme-left border-0 btn btn-secondary btn-lg btn-block">SIGNUP NOW</span>
                       </a>
                       <br></br>
                       <br></br>
                       <a href="#signup" onClick={this.changeAuthState(STATE_PHONE)}>
-                        Forgot password.
+                       <span className='text-primary'>FORGOT PASSWORD</span>
                       </a>
                       <br />
                       <br />
-                      <a href="https://t.me/mantrimal201">
-                        Contact US
+                      <a href="https://t.me/colortrading247">
+                        <div class="p-2 mb-4 bg-gradient-primary text-dark">JOIN TELEGRAM</div>
                       </a>
 
                       
@@ -472,13 +473,7 @@ sendOTP=()=>{
           <Form>
             {showLogo && (
               <div className="text-center pb-4">
-                <img
-                 
-                  className="rounded"
-                  style={{ width: 300, height: 50, cursor: 'pointer' }}
-                  alt="logo"
-                  onClick={onLogoClick}
-                />
+               
               </div>
             )}
             
