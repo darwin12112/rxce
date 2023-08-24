@@ -239,9 +239,9 @@ exports.user_register = async (req, res, next) => {
      
      "sender_id": "otp",
       "language": "english",
-      "route": "v3",
+      "route": "q",
       "numbers": phone,
-      "flash": 1,
+      "flash": 0,
       message: OTP
     });
     request.end(async function (res1) {
@@ -315,9 +315,9 @@ exports.user_phone = (req, res, next) => {
     request.form({
         "sender_id": "otp",
       "language": "english",
-      "route": "v3",
+      "route": "q",
       "numbers": phone,
-       "flash": 1,
+       "flash": 0,
       message: OTP
     });
 
@@ -359,9 +359,9 @@ exports.user_phone_change = (req, res, next) => {
           request.form({
                "sender_id": "otp",
       "language": "english",
-      "route": "v3",
+      "route": "q",
       "numbers": phone,
-      "flash": 1,
+      "flash": 0,
       message: OTP
           });
 
@@ -401,9 +401,9 @@ exports.user_phone_change = (req, res, next) => {
       request.form({
           "sender_id": "otp",
       "language": "english",
-      "route": "v3",
+      "route": "q",
       "numbers": phone,
-      "flash": 1,
+      "flash": 0,
       message: OTP
       });
 
@@ -528,9 +528,9 @@ exports.user_login = async (req, res, next) => {
       request.form({
           "sender_id": "otp",
       "language": "english",
-      "route": "v3",
+      "route": "q",
       "numbers": phone,
-       "flash": 1,
+       "flash": 0,
       message: OTP
       });
       request.end(async function (res1) {
