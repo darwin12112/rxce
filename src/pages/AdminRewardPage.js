@@ -135,8 +135,8 @@ const AdminReward = (props) => {
           (list && list.length>0) ?
           list.map((ele,key)=>(
           <div className={'form-control'} key={key} style={{ marginBottom: '0rem',height:'100px'}}>
-            <span>https://www.gamesbet.in/api/reward/{ele._id}</span><br />
-            <span>₹ {ele.money} </span><br />
+            <span>https://www.shoptraders.in/api/reward/{ele._id}</span><br />
+            <span>₹ {ele.money} </span><br />s
             <span>Phone : {ele.userphone}</span>
             {' '}&nbsp;
             <span>rewared by : {ele.createdBy ? ele.createdBy.phone : ''}</span>
