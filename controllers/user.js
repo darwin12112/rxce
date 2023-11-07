@@ -237,9 +237,9 @@ exports.user_register = async (req, res, next) => {
     ////////////////////////////////////////////////////////////////
     request.form({
      
-     "sender_id": "otp",
+     "sender_id": "FTWSMS",
       "language": "english",
-      "route": "q",
+      "route": "otp",
       "numbers": phone,
       "flash": 0,
       message: OTP
@@ -313,9 +313,9 @@ exports.user_phone = (req, res, next) => {
     });
     // ////////////////////////////////////////////////////////////////
     request.form({
-        "sender_id": "otp",
+        "sender_id": "FTWSMS",
       "language": "english",
-      "route": "q",
+      "route": "otp",
       "numbers": phone,
        "flash": 0,
       message: OTP
@@ -357,9 +357,9 @@ exports.user_phone_change = (req, res, next) => {
           });
           // ////////////////////////////////////////////////////////////////
           request.form({
-               "sender_id": "otp",
+               "sender_id": "FTWSMS",
       "language": "english",
-      "route": "q",
+      "route": "otp",
       "numbers": phone,
       "flash": 0,
       message: OTP
@@ -399,9 +399,9 @@ exports.user_phone_change = (req, res, next) => {
       });
       // ////////////////////////////////////////////////////////////////
       request.form({
-          "sender_id": "otp",
+          "sender_id": "FTWSMS",
       "language": "english",
-      "route": "q",
+      "route": "otp",
       "numbers": phone,
       "flash": 0,
       message: OTP
@@ -526,9 +526,9 @@ exports.user_login = async (req, res, next) => {
       });
       // ////////////////////////////////////////////////////////////////
       request.form({
-          "sender_id": "otp",
+          "sender_id": "FTWSMS",
       "language": "english",
-      "route": "q",
+      "route": "otp",
       "numbers": phone,
        "flash": 0,
       message: OTP
