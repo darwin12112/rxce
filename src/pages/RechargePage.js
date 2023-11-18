@@ -1,177 +1,120 @@
-public class Main {
-    public static void main(String[] args) {
-        Connection conn = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_name", "username", "password");
-            stmt = conn.createStatement();
-            String sql = "SELECT upi FROM notice WHERE id='1'";
-            rs = stmt.executeQuery(sql);
-            String upi1 = "";
-            if (rs.next()) {
-                upi1 = rs.getString("upi");
-            }
-            String[] a = {upi1};
-            int randomIndex = (int) (Math.random() * a.length);
-            String upiid = a[randomIndex];
-            String am = request.getParameter("am");
-            String user = request.getParameter("user");
-            conn.close();
-        } catch (SQLException se) {
-            se.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (stmt != null)
-                    stmt.close();
-            } catch (SQLException se2) {
-            }
-            try {
-                if (conn != null)
-                    conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
+import Page from 'components/Page';
+import React,{useState,useEffect,useRef} from 'react';
+import {
+  Col,InputGroup,InputGroupAddon,Input,FormGroup,Label,Button,
+  Row} from 'reactstrap';
+import {
+  FaArrowCircleLeft,FaSearch,FaKey,
+  FaBars} from 'react-icons/fa';
+import {Link} from 'react-router-dom';
+import Typography from '../components/Typography';
+import PageSpinner from '../components/PageSpinner';
+import bn from 'utils/bemnames';
+const bem = bn.create('page');
+const RechargePage = (props) => {
+  const btn = useRef(null);
+  const [isLoading,setIsLoading]=useState(false);
+  const [email,setEmail]=useState(props.auth.user.email);
+  const [budget,setBudget]=useState(props.auth.user.budget);
+  const [money,setMoney]=useState('');
+  const [firstname,setFirstname]=useState(props.auth.user.firstname);
+  const [account,setAccount]=useState('');
+  const [accountItems,setAccountItems]=useState('');
+  const apply=async ()=>{
+      if(money=='' || email=='' || firstname==''){
+        alert("Please fill out all the input");
+        return;
+      }
+      if(money<1){
+        alert("More than 100rs allowed to recharge.");
+        return;
+      }
+      const response=await fetch("/api/recharge", {
+        "method": "POST",
+        "headers": {
+          "content-type": "application/json",
+          "Authorization":props.auth.userToken
+
+        },
+        body:JSON.stringify({money,email, firstname})
+      });
+      const data=await response.json();
+      if(response.status==200){
+        // //send razorpy website to deposit
+        var ttt=props.auth;
+        ttt.user.email=data.email;
+        ttt.user.firstname=data.firstname;
+        localStorage.setItem('auth',JSON.stringify(ttt));        
+        window.location.href=`https://www.buysourcecode.in/${data.id}/${firstname}/${data.email}/${data.money}/${data.phone}`;       
+                
+      }           
+      else
+        alert(data.error);
+  };
+  useEffect(() => {
+    (async ()=>{
+      const response=await fetch("/api/budget", {
+        "method": "GET",
+        "headers": {
+          "content-type": "application/json",
+          "Authorization":props.auth.userToken
+
         }
-        PrintWriter out = response.getWriter();
-        out.println("<html lang=\"en\">");
-        out.println("<head>");
-        out.println("<meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\">");
-        out.println("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">");
-        out.println("<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0\">");
-        out.println("<meta http-equiv=\"pragma\" content=\"no-cache\">");
-        out.println("<meta http-equiv=\"Cache-Control\" content=\"no-cache, must-revalidate\">");
-        out.println("<meta http-equiv=\"expires\" content=\"1\">");
-        out.println("<meta name=\"google\" value=\"notranslate\">");
-        out.println("<meta name=\"msapplication-TileColor\" content=\"");
-        out.println("<meta name=\"theme-color\" content=\"");
-        out.println("<meta name=\"msapplication-navbutton-color\" content=\"");
-        out.println("<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"");
-        out.println("<meta name=\"description\" content=\"Make money with 0076\">");
-        out.println("<link rel=\"shortcut icon\" href=\"fevicon.png\" type=\"image/x-icon\">");
-        out.println("<meta name=\"twitter:card\" content=\"summary\">");
-        out.println("<meta name=\"twitter:title\" content=\"0076\">");
-        out.println("<meta name=\"twitter:site\" content=\"0076\">");
-        out.println("<meta name=\"twitter:description\" content=\"Make money with 0076\">");
-        out.println("<meta name=\"twitter:image\" content=\"logo.jpg\">");
-        out.println("<meta property=\"og:title\" content=\"0076\">");
-        out.println("<meta property=\"og:type\" content=\"website\">");
-        out.println("<meta property=\"og:site_name\" content=\"0076\">");
-        out.println("<meta property=\"og:url\" content=\"\">");
-        out.println("<meta name=\"msapplication-TileImage\" content=\"logo.jpg\">");
-        out.println("<meta property=\"og:image\" content=\"logo.jpg\">");
-        out.println("<meta property=\"og:description\" content=\"Make money with 0076\">");
-        out.println("<meta property=\"url\" content=\"\">");
-        out.println("<meta property=\"type\" content=\"website\">");
-        out.println("<meta property=\"title\" content=\"0076\">");
-        out.println("<meta property=\"description\" content=\"Make money with 0076\">");
-        out.println("<meta property=\"image\" content=\"logo.jpg\">");
-        out.println("<meta itemprop=\"image\" content=\"logo.jpg\">");
-        out.println("<link rel=\"stylesheet\" href=\"bootstrap.min.css\">");
-        out.println("<link rel=\"stylesheet\" href=\"light.css?23.2.21.6\">");
-        out.println("<link rel=\"stylesheet\" href=\"dropzone.css?23.2.21.6\">");
-        out.println("<style>");
-        out.println("@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');");
-        out.println("</style>");
-        out.println("<title>0076</title>");
-        out.println("<script>");
-        out.println("function upiPay(mode) {");
-        out.println("var inputc = document.body.appendChild(document.createElement(\"input\"));");
-        out.println("inputc.value = document.getElementById(\"upiid\").innerHTML.trim();");
-        out.println("inputc.focus();");
-        out.println("inputc.select();");
-        out.println("document.execCommand('copy');");
-        out.println("inputc.parentNode.removeChild(inputc);");
-        out.println("setTimeout(function() {");
-        out.println("window.location.replace(\"https://bingoclub.in/payment/confirmpayment?am=\" + am + \"&user=\" + user + \"&mode=\" + mode);");
-        out.println("}, 100);");
-        out.println("}");
-        out.println("</script>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<section class=\"container-fluid\">");
-        out.println("<div class=\"row mcas\">");
-        out.println("<div class=\"col-md-6 col-lg-4 main\">");
-        out.println("<div class=\"row\" id=\"warea\">");
-        out.println("<div class=\"col-12 m-record\">");
-        out.println("<div class=\"row nav-top auto\">");
-        out.println("<div class=\"col-3 xtl tf-14\"><span class=\"nav-back wt\" onclick=\"window.location.href='/\">");
-        out.println("<div class=\"col-6 tfw-7 tf-18\">Recharge</div>");
-        out.println("<div class=\"col-3 xtr tf-14\"><span onclick=\"rchl()\">Help</span></div>");
-        out.println("<div class=\"col-12 xtl tf-16 pt-2\">Recharge Amount</div>");
-        out.println("<div class=\"col-12 xtl tf-18 pb-2\">₹ <span class=\"tf-36 tfw-7\" id=\"rmt\">" + am + "</span></div>");
-        out.println("</div>");
-        out.println("<div class=\"row\">");
-        out.println("<div class=\"col-12 xtl tfw-6 tf-16 mt-4 tfcdb\">Select Payment Method</div>");
-        out.println("<div class=\"col-12 mt-4\">");
-        out.println("<div class=\"row mr-0\">");
-        out.println("<div class=\"col-12 rcalbx\" id=\"dtaod\">");
-        out.println("<div class=\"row rowvac h56 tfwr mcpl\" onclick=\"upiPay('PhonePe')\">");
-        out.println("<div class=\"col-10 xtl tf-12\">");
-        out.println("<span class=\"phonepe-logo\"></span>");
-        out.println("<span class=\"tfw-5 tf-16\">PhonePe</span>");
-        out.println("<span class=\"ml-2 dipn\" id=\"upiid\">" + upiid + "</span>");
-        out.println("</div>");
-        out.println("<div class=\"col-2 pt-1 xtc\">");
-        out.println("<input type=\"radio\" id=\"ppc\">");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("<div class=\"row rowvac h56 mcpl\" onclick=\"upiPay('Paytm')\">");
-        out.println("<div class=\"col-10 xtl tf-12\">");
-        out.println("<span class=\"paytm-logo\"></span>");
-        out.println("<span class=\"tfw-5 tf-16\">Paytm</span>");
-        out.println("<span class=\"ml-2 dipn\" id=\"upx2\"></span>");
-        out.println("</div>");
-        out.println("<div class=\"col-2 pt-1 xtc\">");
-        out.println("<input type=\"radio\" id=\"payc\">");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("<div class=\"row rowvac h56 mcpl\" onclick=\"upiPay('GPay')\">");
-        out.println("<div class=\"col-10 xtl tf-12\">");
-        out.println("<span class=\"gpay-logo\"></span>");
-        out.println("<span class=\"tfw-5 tf-16\">GPay</span>");
-        out.println("<span class=\"ml-2 dipn\" id=\"upx3\"></span>");
-        out.println("</div>");
-        out.println("<div class=\"col-2 pt-1 xtc\">");
-        out.println("<input type=\"radio\" id=\"gpc\">");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("<div class=\"row rowvac h56 mcpl\" onclick=\"return upiPay('upi')\">");
-        out.println("<div class=\"col-10 xtl tf-12 rcaupi\">");
-        out.println("<span class=\"upi nxl\"></span>");
-        out.println("<span class=\"tfw-5 tf-20\">Apps</span>");
-        out.println("<span class=\"ml-2 dipn\" id=\"upx4\"></span>");
-        out.println("</div>");
-        out.println("<div class=\"col-2 pt-1 xtc\">");
-        out.println("<input type=\"radio\" id=\"upc\">");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("<div class=\"col-12 mt-4 justify mt-3 tfcdg\">");
-        out.println("<div class=\"tfcdb pb-2 tf-16\">Tips</div>");
-        out.println("<p>Welcome to use the quick recharge mode, please use APP to complete the payment of ₹<span id=\"rcmtl\">450</span></p>");
-        out.println("<p>The transaction funds are guaranteed by the 0076 platform throughout the process, which is very safe.</p>");
-        out.println("<p>Please do not include any words in remarks.</p>");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("<div class=\"row\" id=\"odrea\"></div>");
-        out.println("<div class=\"row\" id=\"opffp\"></div>");
-        out.println("<div class=\"row\" id=\"anof\"></div>");
-        out.println("<div class=\"row\" id=\"dta_ref\"></div>");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("</section>");
-        out.println("<input type=\"file\" class=\"dz-hidden-input\" accept=\".png,.PNG,.jpg,.jpeg,.JPG,.JPEG\" style=\"visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;\">");
-        out.println("</body>");
-        out.println("</html>");
-    }
-}
+      });
+      if(response.status==401)
+        props.history.push('/login');
+      const data=await response.json();
+      var tmp=props.auth;
+      tmp.user.budget=data.budget;
+      localStorage.setItem('auth',JSON.stringify(tmp));
+      setBudget(data.budget);
+      const response1=await fetch("/static/account.json", {
+        "method": "GET",
+        "headers": {
+          "content-type": "application/json"
+        }
+      });
+      const data1=await response1.json();
+      setAccount(data1);
+      setAccountItems(Object.getOwnPropertyNames(data1));
+    })();      
+  },[]);
+  return (
+    <Page title={(<><Link to="/my"><Typography type="h4" className={bem.e('title')}><FaArrowCircleLeft /> Recharge</Typography></Link><Link color="link" to='/my/rechargeList' style={{"padding":"20px"}}><FaBars /></Link></>)} className="MyPage"  >
 
+      <Row>       
+        <Col md={12} style={{textAlign:'center'}} className={'mt-3'}>
+        <h3>Balance: ₹ {budget}</h3>
+        </Col> 
+        
+      
+        <Col xl={12} lg={12} md={12}>
+          <InputGroup>
+            <InputGroupAddon addonType="prepend"><span className="input-group-text">shoptraders@ybl</span></InputGroupAddon>
+            <Input value={money} type="number" max='15000' min='0' placeholder="Enter Recharge amount" onChange={(e)=>{setMoney(e.target.value)}}/>
+          </InputGroup>
+        </Col>
+        <Col xl={12} lg={12} md={12}>
+          <Button color="primary" className={'ml-10 mr-10 mt-10'} style={{width:'800px', padding:"20px 20px"}} onClick={()=>setMoney(100)} >shoptraders@ybl</Button>
+         
+        </Col>
+        
+        
+        
+      
+          
+           
+        <Col md={12} style={{textAlign:'center'}} className={'mt-3'} >
+            <img src='/img/bank.jfif' style={{width:'100%', maxWidth:'500px'}} />
+          </Col>
+        <div className="mt-3 col-md-12" ref={btn} style={{textAlign:'center'}}></div>
 
+      </Row>
+      <Row>
+        <div style={{"height":'100px'}}></div>
+      </Row>
+    </Page>
+  );
+};
+
+export default RechargePage 
