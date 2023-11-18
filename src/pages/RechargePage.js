@@ -98,6 +98,12 @@ const RechargePage = (props) => {
           <Button color="primary" className={'ml-10 mr-10 mt-10'} style={{width:'800px', padding:"20px 20px"}} onClick={()=>setMoney(100)} >shoptraders@ybl</Button>
          
         </Col>
+  { <Col xl={12} lg={12} md={12} style={{padding:"0 30px"}}>
+          {accountItems && accountItems.map((ele,key)=>(
+            <h6 key={key}>{ele+' '}:{' '+account[ele]}</h6> 
+          ))}
+          <h6></h6>
+        </Col> }
         
         
         
