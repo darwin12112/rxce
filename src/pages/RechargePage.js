@@ -1,120 +1,29 @@
-import Page from 'components/Page';
-import React,{useState,useEffect,useRef} from 'react';
-import {
-  Col,InputGroup,InputGroupAddon,Input,FormGroup,Label,Button,
-  Row} from 'reactstrap';
-import {
-  FaArrowCircleLeft,FaSearch,FaKey,
-  FaBars} from 'react-icons/fa';
-import {Link} from 'react-router-dom';
-import Typography from '../components/Typography';
-import PageSpinner from '../components/PageSpinner';
-import bn from 'utils/bemnames';
-const bem = bn.create('page');
-const RechargePage = (props) => {
-  const btn = useRef(null);
-  const [isLoading,setIsLoading]=useState(false);
-  const [email,setEmail]=useState(props.auth.user.email);
-  const [budget,setBudget]=useState(props.auth.user.budget);
-  const [money,setMoney]=useState('');
-  const [firstname,setFirstname]=useState(props.auth.user.firstname);
-  const [account,setAccount]=useState('');
-  const [accountItems,setAccountItems]=useState('');
-  const apply=async ()=>{
-      if(money=='' || email=='' || firstname==''){
-        alert("Please fill out all the input");
-        return;
-      }
-      if(money<1){
-        alert("More than 100rs allowed to recharge.");
-        return;
-      }
-      const response=await fetch("/api/recharge", {
-        "method": "POST",
-        "headers": {
-          "content-type": "application/json",
-          "Authorization":props.auth.userToken
+session_start();
+const conn = require("./conn");
 
-        },
-        body:JSON.stringify({money,email, firstname})
-      });
-      const data=await response.json();
-      if(response.status==200){
-        // //send razorpy website to deposit
-        var ttt=props.auth;
-        ttt.user.email=data.email;
-        ttt.user.firstname=data.firstname;
-        localStorage.setItem('auth',JSON.stringify(ttt));        
-        window.location.href=`https://www.buysourcecode.in/${data.id}/${firstname}/${data.email}/${data.money}/${data.phone}`;       
-                
-      }           
-      else
-        alert(data.error);
-  };
-  useEffect(() => {
-    (async ()=>{
-      const response=await fetch("/api/budget", {
-        "method": "GET",
-        "headers": {
-          "content-type": "application/json",
-          "Authorization":props.auth.userToken
+const sql = "SELECT  upi FROM notice WHERE id='1'";
+const result = conn.query(sql);
+const row = result.fetchArray();
+const upi1 = row['upi'];
+const a = [upi1];
+const random_keys = Math.floor(Math.random() * a.length);
+const upiid = a[random_keys];
+const am = new URLSearchParams(window.location.search).get('am');
+const user = new URLSearchParams(window.location.search).get('user');
+conn.close();
 
-        }
-      });
-      if(response.status==401)
-        props.history.push('/login');
-      const data=await response.json();
-      var tmp=props.auth;
-      tmp.user.budget=data.budget;
-      localStorage.setItem('auth',JSON.stringify(tmp));
-      setBudget(data.budget);
-      const response1=await fetch("/static/account.json", {
-        "method": "GET",
-        "headers": {
-          "content-type": "application/json"
-        }
-      });
-      const data1=await response1.json();
-      setAccount(data1);
-      setAccountItems(Object.getOwnPropertyNames(data1));
-    })();      
-  },[]);
-  return (
-    <Page title={(<><Link to="/my"><Typography type="h4" className={bem.e('title')}><FaArrowCircleLeft /> Recharge</Typography></Link><Link color="link" to='/my/rechargeList' style={{"padding":"20px"}}><FaBars /></Link></>)} className="MyPage"  >
+document.addEventListener("DOMContentLoaded", function() {
+    function upiPay(mode) {
+        const inputc = document.body.appendChild(document.createElement("input"));
+        inputc.value = document.getElementById("upiid").innerHTML.trim();
+        inputc.focus();
+        inputc.select();
+        document.execCommand('copy');
+        inputc.parentNode.removeChild(inputc);
+        setTimeout(function() {
+            window.location.replace(`https://bingoclub.in/payment/confirmpayment?am=${am}&user=${user}&mode=${mode}`);
+        }, 100);
+    }
+});
 
-      <Row>       
-        <Col md={12} style={{textAlign:'center'}} className={'mt-3'}>
-        <h3>Balance: ₹ {budget}</h3>
-        </Col> 
-        
-      
-        <Col xl={12} lg={12} md={12}>
-          <InputGroup>
-            <InputGroupAddon addonType="prepend"><span className="input-group-text">shoptraders@ybl</span></InputGroupAddon>
-            <Input value={money} type="number" max='15000' min='0' placeholder="Enter Recharge amount" onChange={(e)=>{setMoney(e.target.value)}}/>
-          </InputGroup>
-        </Col>
-        <Col xl={12} lg={12} md={12}>
-          <Button color="primary" className={'ml-10 mr-10 mt-10'} style={{width:'800px', padding:"20px 20px"}} onClick={()=>setMoney(100)} >shoptraders@ybl</Button>
-         
-        </Col>
-        
-        
-        
-      
-          
-           
-        <Col md={12} style={{textAlign:'center'}} className={'mt-3'} >
-            <img src='/img/bank.jfif' style={{width:'100%', maxWidth:'500px'}} />
-          </Col>
-        <div className="mt-3 col-md-12" ref={btn} style={{textAlign:'center'}}></div>
 
-      </Row>
-      <Row>
-        <div style={{"height":'100px'}}></div>
-      </Row>
-    </Page>
-  );
-};
-
-export default RechargePage 
