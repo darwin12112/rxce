@@ -95,7 +95,7 @@ const RechargePage = (props) => {
           </InputGroup>
         </Col>
         <Col xl={12} lg={12} md={12}>
-          <Button color="primary" className={'ml-5 mr-5 mt-5'} style={{width:'200px', padding:"10px 10px"}} onClick={()=>setMoney(100)} >shoptraders@ybl</Button>
+    
          
         </Col>
   { <Col xl={12} lg={12} md={12} style={{padding:"0 30px"}}>
