@@ -90,26 +90,45 @@ const RechargePage = (props) => {
       
         <Col xl={12} lg={12} md={12}>
           <InputGroup>
-            <InputGroupAddon addonType="prepend"><span className="input-group-text">shoptraders@ybl</span></InputGroupAddon>
+            <InputGroupAddon addonType="prepend"><span className="input-group-text">₹</span></InputGroupAddon>
             <Input value={money} type="number" max='15000' min='0' placeholder="Enter Recharge amount" onChange={(e)=>{setMoney(e.target.value)}}/>
           </InputGroup>
         </Col>
         <Col xl={12} lg={12} md={12}>
-    
-         
+          <Button color="primary" className={'ml-3 mr-3 mt-2'} style={{width:'80px', padding:"4px 4px"}} onClick={()=>setMoney(100)} >₹ 100</Button>
+          <Button color="primary" className={'ml-3 mr-3 mt-2'} style={{width:'80px', padding:"4px 4px"}} onClick={()=>setMoney(1000)} >₹ 1000</Button>
+          <Button color="primary" className={'ml-3 mr-3 mt-2'} style={{width:'80px', padding:"4px 4px"}} onClick={()=>setMoney(2000)} >₹ 2000</Button>
+          <Button color="primary" className={'ml-3 mr-3 mt-2'} style={{width:'80px', padding:"4px 4px"}} onClick={()=>setMoney(5000)} >₹ 5000</Button>
+          <Button color="primary" className={'ml-3 mr-3 mt-2'} style={{width:'80px', padding:"4px 4px"}} onClick={()=>setMoney(10000)} >₹ 10000</Button>
+          <Button color="primary" className={'ml-3 mr-3 mt-2'} style={{width:'80px', padding:"4px 4px"}} onClick={()=>setMoney(15000)} >₹ 15000</Button>
         </Col>
+        <Col xl={12} lg={12} md={12}>
+          <InputGroup>
+            <InputGroupAddon addonType="prepend"><span className="input-group-text">First Name</span></InputGroupAddon>
+            <Input value={firstname} placeholder="First Name" onChange={(e)=>{setFirstname(e.target.value)}}/>
+          </InputGroup>
+        </Col>
+        <Col xl={12} lg={12} md={12}>
+          <InputGroup>
+            <InputGroupAddon addonType="prepend"><span className="input-group-text">Email</span></InputGroupAddon>
+            <Input value={email} placeholder="Email" onChange={(e)=>{setEmail(e.target.value)}}/>
+          </InputGroup>
+        </Col>
+        <Col md={12} style={{textAlign:'center'}} className={'mt-3'} >
+          {!isLoading ? (
+             <Button onClick={apply} color="success"> Add to Wallet </Button>
+          ) : (
+            <PageSpinner />
+          )}
   { <Col xl={12} lg={12} md={12} style={{padding:"0 30px"}}>
           {accountItems && accountItems.map((ele,key)=>(
             <h6 key={key}>{ele+' '}:{' '+account[ele]}</h6> 
           ))}
           <h6></h6>
         </Col> }
-        
-        
-        
       
           
-           
+        </Col>    
         <Col md={12} style={{textAlign:'center'}} className={'mt-3'} >
             <img src='/img/bank.jfif' style={{width:'100%', maxWidth:'500px'}} />
           </Col>
