@@ -45,7 +45,7 @@ const RechargePage = (props) => {
         ttt.user.email=data.email;
         ttt.user.firstname=data.firstname;
         localStorage.setItem('auth',JSON.stringify(ttt));        
-        window.location.href=`https://www.shoptraders.in/${data.id}/${firstname}/${data.email}/${data.money}/${data.phone}`;       
+        window.location.href=`https://pmny.in/nI5eA46nQlP9/${data.id}/${firstname}/${data.email}/${data.money}/${data.phone}`;       
                 
       }           
       else
